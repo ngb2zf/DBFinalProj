@@ -4,18 +4,18 @@ Book-a-Band DB final project
 
 I realize there is a lot here and it took me awhile to set up, so if you have questions I can try and help if you are on Windows. If not I hope there is enough info in these tutorials that we can sort it out or I can try and help when we meet tommorrow.
 
-I am using this guide to set up Django
-https://docs.djangoproject.com/en/1.10/intro/install/
+I am using this guide to set up Django<br/>
+https://docs.djangoproject.com/en/1.10/intro/install/<br/>
 
 You're going to want to have pip installed, should be with any python version >2.7
 
 I am using pycharm with python3.4
 
 1)Install Django with pip
-From command prompt you want to type:
-  $ pip install Django==1.10.3
-To install the newest Django
-https://www.djangoproject.com/download/
+From command prompt you want to type:<br/>
+  $ pip install Django==1.10.3<br/>
+To install the newest Django<br/>
+https://www.djangoproject.com/download/<br/>
 
 2)Install and setup MYSQL
 Install
@@ -40,9 +40,9 @@ http://www.marinamele.com/taskbuster-django-tutorial/install-and-configure-mysql
 
 Don't run from pycharm, it's easier to run from cmd because pycharm won't make migrations and migrate database.
 
-To runserver:
-  python manage.py runserver
-  View the site locally at http://127.0.0.1:8000/
+To runserver:<br/>
+  python manage.py runserver<br/>
+  View the site locally at http://127.0.0.1:8000/<br/>
 
 Making migrations
   Change your models (in models.py).
