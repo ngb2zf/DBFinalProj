@@ -37,6 +37,7 @@ http://www.marinamele.com/taskbuster-django-tutorial/install-and-configure-mysql
 
 
 -----------------------------------------------------------OTHER---------------------------------------------------------------
+
 Don't run from pycharm, it's easier to run from cmd because pycharm won't make migrations and migrate database.
 
 To runserver:
