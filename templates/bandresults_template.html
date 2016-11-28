@@ -4,9 +4,19 @@
   
   <h2>Results</h2>
   
+<table class="table-striped search-results">
+<tr>
+<th>Band Name</th>
+<th>Price</th>
+<th>Phone</th>
+<th>Email</th>
+</tr>
 {% for o in bands %}
-    {{ o.b_name }}
-    <br>
+    <tr><td>{{ o.b_name }}</td>
+    <td>${{ o.b_price }}</td>
+	<td>{{ o.b_phone }}</td>
+	<td>{{ o.b_email }}</td></tr>
 {% endfor %}
+</table>
   
 {% endblock %}
