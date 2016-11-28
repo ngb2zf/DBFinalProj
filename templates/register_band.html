@@ -17,27 +17,29 @@
       <p>Band Info</p>
       <hr>
   {{form}} -->
-      {% for field in form2 %}
+<!--       {% for field in form2 %}
       <tr>
           <td>{{ field.label_tag }}</td>
           <td>{{ field }}</td>
       </tr>
       <br/>
-      {% endfor %}
+      {% endfor %} -->
+      <center><table>{{form2.as_table}}</table></center>
       <hr>
 
       <hr>
       <p>Band Info</p>
       <hr>
 
-      {% for field in form %}
+<!--       {% for field in form %}
       <tr>
           <td>{{ field.label_tag }}</td>
           <td>{{ field }}</td>
       </tr>
       <br/>
-      {% endfor %}
-  <input type="submit" value="Register" />
+      {% endfor %} -->
+      <center><table>{{form.as_table}}</table></center>
+      <input type="submit" value="Register" />
     
   </form>
   
