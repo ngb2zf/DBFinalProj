@@ -79,8 +79,12 @@ def register_host(request):
         form = Host_MyRegistrationForm(request.POST)
         form2 = MyRegistrationForm(request.POST)
         if form.is_valid() & form2.is_valid():
-            form.save()
-            form2.save()
+            user = form2.save()
+
+            host = form.save(commit=False)
+            host.user = user
+
+            host.save()
             return HttpResponseRedirect('/accounts/register_success')
 
     else:

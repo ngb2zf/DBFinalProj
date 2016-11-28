@@ -1,5 +1,5 @@
 from __future__ import unicode_literals
-
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -15,6 +15,7 @@ from django.db import models
 
 
 class Hosts(models.Model):
+	user = models.OneToOneField(User, unique=False)
 	h_id = models.AutoField(primary_key=True)
 	h_name = models.CharField(max_length=255)
 	h_email = models.CharField(max_length=255)
