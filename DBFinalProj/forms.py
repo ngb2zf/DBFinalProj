@@ -12,7 +12,12 @@ class MyRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2')
-        
+        help_texts = {
+            'username': None,
+            'password1': None,
+            'password2': None,
+        }
+
     def save(self, commit=True):
         user = super(MyRegistrationForm, self).save(commit=False)
         # user.email = self.cleaned_data['email']
@@ -33,7 +38,7 @@ class Band_MyRegistrationForm(ModelForm):
             'b_name': _('Name'),
             'b_email': _('Email'),
             'b_phone': _('Phone'),
-            'b_availability': _('Availability'),
+            'b_availability': _('Contact Hours'),
             'b_price': _('Price'),
             'b_bio': _('Biography'),
             'b_address': _('Address')
@@ -78,7 +83,7 @@ class Host_MyRegistrationForm(ModelForm):
             'h_name': _('Name'),
             'h_email': _('Email'),
             'h_phone': _('Phone'),
-            'h_availability': _('Availability'),
+            'h_availability': _('Contact Hours'),
         }
 
     def save(self, commit=True):
