@@ -35,6 +35,7 @@ class ResultsView(generic.DetailView):
 
 
 def index(request):
+<<<<<<< HEAD:polls/views.py
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
@@ -73,3 +74,6 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+=======
+    return HttpResponse("Hello, world. You're at the main bands page.")
+>>>>>>> 4122b9a28319ac2aaad974b2f464fb992edfb9d3:bandsapp/views.py

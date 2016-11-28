@@ -20,7 +20,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
-    url(r'^polls/', include('polls.urls')),
+    url(r'^bands/', include('bandsapp.urls')),
     url(r'^admin/', admin.site.urls),
     # user auth urls
     url(r'^accounts/login/$',  views.login, name='login'),
