@@ -64,9 +64,12 @@ class Band_MyRegistrationForm(ModelForm):
         #g.latlng
 
         g = geocoder.google(band.b_address)
+        if len(g.latlng) == 0:
+            band.b_lat = 0
+            band.b_lon = 0
+        else:
+            band.b_lat, band.b_lon = g.latlng
 
-        band.b_lat, band.b_lon = g.latlng
-        
 
         if commit:
             band.save()
@@ -114,7 +117,13 @@ class Event_MyRegistrationForm(ModelForm):
 
         g = geocoder.google(event.e_address)
 
-        event.e_lat, event.e_lon = g.latlng
+        if len(g.latlng) == 0:
+            event.e_lat = 0
+            event.e_lon = 0
+        else:
+            event.e_lat, event.e_lon = g.latlng
+
+        
 
         if commit:
             event.save()
