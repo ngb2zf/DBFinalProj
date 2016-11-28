@@ -34,6 +34,10 @@ This is needed to connect Django to MySQL<br/>
 Tutorial for setting it all up - Don't worry about what they say about settings or ENV variables<br/>
 http://www.marinamele.com/taskbuster-django-tutorial/install-and-configure-mysql-for-django<br/>
 
+<br/>
+Install Geocoder:<br/>
+  $ pip install mysqlclient==1.3.6<br/>
+This is needed to convert addresses into lat and lon<br/>
 
 <br/>
 -----------------------------------------------------------OTHER---------------------------------------------------------------
