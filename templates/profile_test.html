@@ -3,6 +3,11 @@
 {% block content %}
 
   <h2>User Prof</h2>
+    {% if user_Type %}
+        <p>You are a Host</p>
+    {% else %}
+        <p>You are a Band</p>
+    {% endif %}
     <p>user_id={{ user_id }}</p>
     {% if host != 0 %}
     <p>host.name={{ host.h_name }}</p>

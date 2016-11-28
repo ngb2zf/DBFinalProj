@@ -144,7 +144,9 @@ def register_success(request):
     return render_to_response('register_success.html',{"user": request.user,})
 
 
-def get_User_Obj(user_id):
+def get_User_Type(user_id):
+    # Return True if user is a Host
+    # Return False if user is a Band
     hosts_list = Hosts.objects.all()
     bands_list = Bands.objects.all()
 
@@ -159,9 +161,9 @@ def get_User_Obj(user_id):
             band = b
 
     if band == 0:
-        return host
+        return True
     elif host == 0:
-        return band
+        return False
 
 def profile(request):
     hosts_list = Hosts.objects.all()
@@ -179,7 +181,7 @@ def profile(request):
         if b.user_id == user_id:
             band = b
 
+    user_Type = get_User_Type(user_id)
 
-
-    return render_to_response('profile_test.html',{"user": request.user,"user_id":user_id, "host":host, "band":band})
+    return render_to_response('profile_test.html',{"user": request.user,"user_id":user_id, "host":host, "band":band, "user_Type":user_Type})
 
