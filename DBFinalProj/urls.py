@@ -22,4 +22,15 @@ urlpatterns = [
     url(r'^$', views.index),
     url(r'^polls/', include('polls.urls')),
     url(r'^admin/', admin.site.urls),
+    # user auth urls
+    url(r'^accounts/login/$',  views.login, name='login'),
+    url(r'^accounts/auth/$',  views.auth_view, name='auth'),
+    url(r'^accounts/logout/$', views.logout, name='logout'),
+    url(r'^accounts/loggedin/$', views.loggedin, name='loggedin'),
+    url(r'^accounts/invalid/$', views.invalid_login, name='invalid'),
+    url(r'^accounts/register/$', views.register_user, name='register'),
+    url(r'^accounts/register_success/$', views.register_success, name='reg_success'),
+
+
+
 ]
