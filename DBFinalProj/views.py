@@ -6,21 +6,28 @@ from .forms import MyRegistrationForm, Band_MyRegistrationForm, Host_MyRegistrat
 # Create your views here.
 
 
-# def user(request):
-#     if hasattr(request, 'user'):
-#         return {'user':request.user }
-#     return {}
-
 def index(request):
+    # This code will be in each view, it's how we are distinguising between hosts and bands
     hosts_list = Hosts.objects.all()
-    host_names = []
-
     bands_list = Bands.objects.all()
 
-    for h in hosts_list:
-        host_names.append(h.h_name)
+    user_id = request.user.id
 
-    return render_to_response('index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list})
+    # True if you are host, False if you are a band
+    user_Type = get_User_Type()
+
+
+    # Code for host at index
+    if user_Type:
+        host_names = []
+        for h in hosts_list:
+            host_names.append(h.h_name)
+        return render_to_response('index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list})
+    elif user_Type == False:
+        host_names = []
+        for h in hosts_list:
+            host_names.append(h.h_name)
+        return render_to_response('index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list})
 
 
 def login(request):
@@ -141,6 +148,7 @@ def register_event(request):
 
 
 def register_success(request):
+    auth.login(request)
     return render_to_response('register_success.html',{"user": request.user,})
 
 
