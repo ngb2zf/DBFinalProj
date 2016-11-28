@@ -38,5 +38,21 @@ class Band_MyRegistrationForm(ModelForm):
         return band
 
 
+class Host_MyRegistrationForm(ModelForm):
+
+    class Meta:
+        model = Hosts
+        fields = ('h_name', 'h_email', 'h_phone','h_availability')
+
+    def save(self, commit=True):
+        host = super(Host_MyRegistrationForm, self).save(commit=False)
+
+
+        if commit:
+            host.save()
+
+        return host
+
+
     
     

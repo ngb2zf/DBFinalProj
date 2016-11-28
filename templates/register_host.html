@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+  <h2>Register</h2>
+  
+{#  {% for field in form %}#}
+{#    {{field.error}}#}
+{##}
+{#  {% endfor %}#}
+  
+  <form action="/accounts/register_host/" method="post">
+        <p>BOOK-A-BAND.com Info</p>
+      <hr>
+  {{ form2 }}
+      <hr>
+      <p>Host Info</p>
+      <hr>
+  {{form}}
+      <hr>
+
+  <input type="submit" value="Register" />
+    
+  </form>
+  
+{% endblock %}
