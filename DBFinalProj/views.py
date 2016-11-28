@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
 from bandsapp.models import Hosts, Bands, Events
+from django.contrib.auth.decorators import login_required
 from .forms import MyRegistrationForm, Band_MyRegistrationForm, Host_MyRegistrationForm, Event_MyRegistrationForm
 # Create your views here.
 
@@ -122,20 +123,27 @@ def register_event(request):
     if request.method == 'POST':
 
         form = Event_MyRegistrationForm(request.POST)
-        form2 = MyRegistrationForm(request.POST)
-        if form.is_valid() & form2.is_valid():
-            form.save()
-            form2.save()
+        # form2 = MyRegistrationForm(request.POST)
+        if form.is_valid():
+            event = form.save(commit = False)
+            hosts_list = Hosts.objects.all()
+            user_id = request.user.id
+            host = 0
+            for h in hosts_list:
+                if h.user_id == user_id:
+                    host = h
+            event.h_id_id = host.h_id
+            event.save()
             return HttpResponseRedirect('/accounts/register_success')
 
     else:
         form = Event_MyRegistrationForm()
-        form2 = MyRegistrationForm()
+        # form2 = MyRegistrationForm()
     args = {}
     # args.update(csrf(request))
 
     args['form'] = form
-    args['form2'] = form2
+    # args['form2'] = form2
 
     return render_to_response('register_event.html', args)
 
@@ -165,6 +173,8 @@ def get_User_Type(user_id):
     elif host == 0:
         return False
 
+
+@login_required
 def profile(request):
     hosts_list = Hosts.objects.all()
     bands_list = Bands.objects.all()
