@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
-from .forms import MyRegistrationForm
+from .forms import MyRegistrationForm, Band_MyRegistrationForm
 # Create your views here.
 
 
@@ -50,6 +50,27 @@ def register_user(request):
     args['form'] = form
 
     return render_to_response('register.html', args)
+
+def register_band(request):
+    if request.method == 'POST':
+
+        form = Band_MyRegistrationForm(request.POST)
+        form2 = MyRegistrationForm(request.POST)
+        if form.is_valid() & form2.is_valid():
+            form.save()
+            return HttpResponseRedirect('/accounts/register_success')
+
+    else:
+        form = Band_MyRegistrationForm()
+        form2 = MyRegistrationForm()
+    args = {}
+    # args.update(csrf(request))
+
+    args['form'] = form
+    args['form2'] = form2
+
+    return render_to_response('register_band.html', args)
+
 
 def register_success(request):
     return render_to_response('register_success.html')

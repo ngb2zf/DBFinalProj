@@ -1,7 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-
+from django.forms import ModelForm
+from bandsapp.models import Bands, Hosts
 
 class MyRegistrationForm(UserCreationForm):
     # email = forms.EmailField(required=True)
@@ -19,13 +20,23 @@ class MyRegistrationForm(UserCreationForm):
             user.save()
             
         return user
-    
-    
 
-class ContactForm1(forms.Form):
-    subject = forms.CharField(max_length=100)
 
-class ContactForm3(forms.Form):
-    message = forms.CharField(widget=forms.Textarea)
+class Band_MyRegistrationForm(ModelForm):
+
+    class Meta:
+        model = Bands
+        fields = ('b_name', 'b_email', 'b_phone','b_availability', 'b_price', 'b_bio', 'b_lat', 'b_lon')
+
+    def save(self, commit=True):
+        band = super(Band_MyRegistrationForm, self).save(commit=False)
+
+
+        if commit:
+            band.save()
+
+        return band
+
+
     
     
