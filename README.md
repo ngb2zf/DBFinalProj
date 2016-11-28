@@ -36,7 +36,7 @@ http://www.marinamele.com/taskbuster-django-tutorial/install-and-configure-mysql
 
 <br/>
 Install Geocoder:<br/>
-  $ pip install mysqlclient==1.3.6<br/>
+  $ pip install geocoder<br/>
 This is needed to convert addresses into lat and lon<br/>
 
 <br/>
