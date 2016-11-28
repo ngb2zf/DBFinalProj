@@ -1,7 +1,10 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{% block title %}My Base Template{% endblock %}</title>
+    <title>{% block title %}BOOK-A-BAND.com{% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/default.css" >
 
 
     
@@ -12,26 +15,18 @@
 
     <div id="sidebar">
         {% block sidebar %}
-            Filler text
+            <p><a href="/accounts/login/">Login</a></p>
+            <p><a href="/accounts/logout/">Logout</a></p>
+            <p><a href="/accounts/register/">Register</a></p>
         {% endblock %}
     </div>
 
     <div id="content">
-    
-	{% if messages %}
-	<ul class="messages">
-	    {% for message in messages %}
-	    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-	    {% endfor %}
-	</ul>
-	{% endif %}
         
         {% block content %}This is the content area{% endblock %}
-	
-	<div class="clearfix"></div>
-    </div>
-	
+
+
 	</div>
-		
+		</div>
 </body>
 </html>

@@ -6,7 +6,7 @@ from .forms import MyRegistrationForm
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the main page.")
+    return render_to_response('index.html')
 
 
 def login(request):
