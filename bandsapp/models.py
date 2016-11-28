@@ -34,6 +34,7 @@ class Bands(models.Model):
 	b_bio = models.TextField()
 	b_lat = models.DecimalField(max_digits=10, decimal_places=8)
 	b_lon = models.DecimalField(max_digits=11, decimal_places=8)
+	b_address = models.CharField(max_length=255)
 
 
 class Events(models.Model):

@@ -14,14 +14,14 @@ def search(request):
 	# this is where the query gets executed
 
 	# this is just get variables named in bandsearch_template
-    name = request.GET['q']
+    name = request.GET['band_name']
 
     # this is where yuo make sql queries and grab the data you want
-    found = get_object_or_404(Bands, b_name__iexact=name)
+    found_bands = get_object_or_404(Bands, b_name__iexact=name)
 
     # we should do something in this loop to put into the context below	
-    for f in found:
-    	print(f)
+    print(found_bands.b_name)
+
     template = loader.get_template('bandresults_template.html')
 
     # variables are set to be rendered then passed to bandresults_template and displayed
