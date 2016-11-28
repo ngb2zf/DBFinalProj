@@ -6,6 +6,8 @@ from bandsapp.models import Bands, Hosts, Events
 from django.utils.translation import ugettext_lazy as _
 import geocoder
 
+# from SelectTimeWidget import SelectTimeWidget
+
 class MyRegistrationForm(UserCreationForm):
     # email = forms.EmailField(required=True)
     
@@ -110,6 +112,10 @@ class Event_MyRegistrationForm(ModelForm):
             'e_capac': _('Capacity'),
             'e_start': _('Start'),
             'e_end': _('End'),
+        }
+        widgets = {
+            'e_start': forms.SelectDateWidget(),
+            'e_end': forms.SelectDateWidget(),
         }
 
     def save(self, commit=True):
