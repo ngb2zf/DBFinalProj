@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.forms import ModelForm
-from bandsapp.models import Bands, Hosts
+from bandsapp.models import Bands, Hosts, Events
 from django.utils.translation import ugettext_lazy as _
 import geocoder
 
@@ -95,6 +95,31 @@ class Host_MyRegistrationForm(ModelForm):
 
         return host
 
+
+class Event_MyRegistrationForm(ModelForm):
+
+    class Meta:
+        model = Events
+        fields = ('e_name', 'e_address', 'e_capac', 'e_start', 'e_end')
+        labels = {
+            'e_name': _('Name'),
+            'e_address': _('Address'),
+            'e_capac': _('Capacity'),
+            'e_start': _('Start'),
+            'e_end': _('End'),
+        }
+
+    def save(self, commit=True):
+        event = super(Event_MyRegistrationForm, self).save(commit=False)
+
+        g = geocoder.google(event.e_address)
+
+        event.e_lat, event.e_lon = g.latlng
+
+        if commit:
+            event.save()
+
+        return host
 
     
     

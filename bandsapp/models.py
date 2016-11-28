@@ -44,6 +44,7 @@ class Events(models.Model):
 	e_name = models.CharField(max_length=255)
 	e_lat = models.DecimalField(max_digits=10, decimal_places=8)
 	e_lon = models.DecimalField(max_digits=11, decimal_places=8)
+	e_address = models.CharField(max_length=255)
 	e_capac = models.IntegerField(blank=True, null=True)
 	e_bandpaid = models.NullBooleanField()
 	e_accepted = models.NullBooleanField()
