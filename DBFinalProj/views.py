@@ -215,6 +215,7 @@ def profile(request):
 
     return render_to_response('profile_test.html',{"user": request.user,"user_id":user_id, "host":host, "band":band, "user_Type":user_Type})
 
+
 def not_loggedin(request):
      return render_to_response('not_loggedin.html')
 
@@ -231,3 +232,4 @@ def edit_profile(request):
             band = b
 
     return render_to_response('edit_profile.html',{"band":band, "user":request.user})
+

@@ -4,6 +4,17 @@
   background-color: #ADD8E6;
 }
 
+.band-search {
+    margin: auto;
+}
+
+.search-results {
+    margin: auto;
+    width: 80%;
+    font-size: 20px;  
+    text-align: left;
+}
+
 .outer-div {
     /*max-width: 330px;*/
     /*max-width: 80%;*/
