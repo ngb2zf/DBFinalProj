@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^accounts/register_band/$', views.register_band, name='reg_band'),
     url(r'^accounts/register_host/$', views.register_host, name='reg_host'),
     url(r'^accounts/profile/$', views.profile, name='profile'),
-
+    url(r'^accounts/register_event/$', views.register_event, name='reg_event'),
 
 
 ]

@@ -1,8 +1,8 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
-from .forms import MyRegistrationForm, Band_MyRegistrationForm, Host_MyRegistrationForm
 from bandsapp.models import Hosts, Bands, Events
+from .forms import MyRegistrationForm, Band_MyRegistrationForm, Host_MyRegistrationForm, Event_MyRegistrationForm
 # Create your views here.
 
 
@@ -118,6 +118,28 @@ def register_host(request):
     return render_to_response('register_host.html', args)
 
 
+def register_event(request):
+    if request.method == 'POST':
+
+        form = Event_MyRegistrationForm(request.POST)
+        form2 = MyRegistrationForm(request.POST)
+        if form.is_valid() & form2.is_valid():
+            form.save()
+            form2.save()
+            return HttpResponseRedirect('/accounts/register_success')
+
+    else:
+        form = Event_MyRegistrationForm()
+        form2 = MyRegistrationForm()
+    args = {}
+    # args.update(csrf(request))
+
+    args['form'] = form
+    args['form2'] = form2
+
+    return render_to_response('register_event.html', args)
+
+
 def register_success(request):
     return render_to_response('register_success.html',{"user": request.user,})
 
@@ -160,5 +182,4 @@ def profile(request):
 
 
     return render_to_response('profile_test.html',{"user": request.user,"user_id":user_id, "host":host, "band":band})
-
 
