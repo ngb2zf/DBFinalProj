@@ -119,7 +119,7 @@ class Event_MyRegistrationForm(ModelForm):
         if commit:
             event.save()
 
-        return host
+        return event
 
     
     
