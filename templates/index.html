@@ -8,5 +8,13 @@
 
     <p>Click <a href="/accounts/register/">here</a> to register a new account.</p>
 
+    <h2>Hosts</h2>
+{% for hosts in host_names %}
+<p>{{ hosts }}</p>
+{% endfor %}
+        <h2>Bands</h2>
+{% for bands in bands_list %}
+<p>{{ bands.b_name }}</p>
+{% endfor %}
 
 {% endblock %}

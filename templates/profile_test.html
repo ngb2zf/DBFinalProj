@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <h2>User Prof</h2>
+    <p>user_id={{ user_id }}</p>
+    {% if host != 0 %}
+    <p>host.name={{ host.h_name }}</p>
+    {% endif %}
+
+    {% if band != 0 %}
+    <p>band.name={{ band.b_name }}</p>
+    {% endif %}
+
+{% endblock %}

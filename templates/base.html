@@ -14,6 +14,15 @@
 
     <div id="sidebar" class = "inner-div">
         {% block sidebar %}
+            <p>Username: {{ user.username }}</p>
+            {% if user.is_authenticated %}
+            <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
+{#                {% if  %}#}
+            {% else %}
+            <p>Welcome, new user. Please log in.</p>
+            {% endif %}
+
+
             <p><a href="/" class="btn btn-default">Home</a>
             <a href="/admin" class="btn btn-default">Admin</a></p>
             <p><a href="/accounts/login/" class="btn btn-default">Login</a>

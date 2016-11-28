@@ -2,16 +2,29 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
 from .forms import MyRegistrationForm, Band_MyRegistrationForm, Host_MyRegistrationForm
+from bandsapp.models import Hosts, Bands, Events
 # Create your views here.
 
 
+# def user(request):
+#     if hasattr(request, 'user'):
+#         return {'user':request.user }
+#     return {}
+
 def index(request):
-    return render_to_response('index.html')
+    hosts_list = Hosts.objects.all()
+    host_names = []
+
+    bands_list = Bands.objects.all()
+
+    for h in hosts_list:
+        host_names.append(h.h_name)
+
+    return render_to_response('index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list})
 
 
 def login(request):
-    c = {}
-    return render_to_response('login.html', c)
+    return render_to_response('login.html', {"user": request.user,})
 
 def auth_view(request):
     username = request.POST.get('username', '')
@@ -20,13 +33,13 @@ def auth_view(request):
 
     if user is not None:
         auth.login(request, user)
-        return HttpResponseRedirect('/accounts/loggedin')
+        return HttpResponseRedirect('/accounts/loggedin',{"user": request.user,})
     else:
         return HttpResponseRedirect('/accounts/invalid')
 
 def loggedin(request):
     return render_to_response('loggedin.html',
-                              {'full_name': request.user.username})
+                              {'full_name': request.user.username,"user": request.user})
 
 def invalid_login(request):
     return render_to_response('invalid_login.html')
@@ -52,14 +65,19 @@ def register_user(request):
     return render_to_response('register.html', args)
 
 def register_band(request):
+    auth.logout(request)
     if request.method == 'POST':
 
         form = Band_MyRegistrationForm(request.POST)
         form2 = MyRegistrationForm(request.POST)
         if form.is_valid() & form2.is_valid():
-            form.save()
-            form2.save()
-            return HttpResponseRedirect('/accounts/register_success')
+            user = form2.save()
+
+            band = form.save(commit=False)
+            band.user = user
+
+            band.save()
+            return HttpResponseRedirect('/accounts/register_success',{"user": request.user})
 
     else:
         form = Band_MyRegistrationForm()
@@ -74,6 +92,7 @@ def register_band(request):
 
 
 def register_host(request):
+    auth.logout(request)
     if request.method == 'POST':
 
         form = Host_MyRegistrationForm(request.POST)
@@ -85,7 +104,7 @@ def register_host(request):
             host.user = user
 
             host.save()
-            return HttpResponseRedirect('/accounts/register_success')
+            return HttpResponseRedirect('/accounts/register_success',{"user": request.user})
 
     else:
         form = Host_MyRegistrationForm()
@@ -100,5 +119,46 @@ def register_host(request):
 
 
 def register_success(request):
-    return render_to_response('register_success.html')
+    return render_to_response('register_success.html',{"user": request.user,})
+
+
+def get_User_Obj(user_id):
+    hosts_list = Hosts.objects.all()
+    bands_list = Bands.objects.all()
+
+    host = 0
+    for h in hosts_list:
+        if h.user_id == user_id:
+            host = h
+
+    band = 0
+    for b in bands_list:
+        if b.user_id == user_id:
+            band = b
+
+    if band == 0:
+        return host
+    elif host == 0:
+        return band
+
+def profile(request):
+    hosts_list = Hosts.objects.all()
+    bands_list = Bands.objects.all()
+
+    user_id = request.user.id
+
+    host = 0
+    for h in hosts_list:
+        if h.user_id == user_id:
+            host = h
+
+    band = 0
+    for b in bands_list:
+        if b.user_id == user_id:
+            band = b
+
+
+
+    return render_to_response('profile_test.html',{"user": request.user,"user_id":user_id, "host":host, "band":band})
+
 

@@ -25,6 +25,7 @@ class Hosts(models.Model):
  
 
 class Bands(models.Model):
+	user = models.OneToOneField(User, unique=False)
 	b_id = models.AutoField(primary_key=True)
 	b_name = models.CharField(max_length=255)
 	b_email = models.CharField(max_length=255)
