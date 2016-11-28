@@ -6,16 +6,17 @@ from django.contrib.auth.decorators import login_required
 from .forms import MyRegistrationForm, Band_MyRegistrationForm, Host_MyRegistrationForm, Event_MyRegistrationForm
 # Create your views here.
 
-
+@login_required(login_url='/accounts/not_loggedin/')
 def index(request):
-    # This code will be in each view, it's how we are distinguising between hosts and bands
+    # This code will be in each view where we need to tell user or host
+    # , it's how we are distinguising between hosts and bands
     hosts_list = Hosts.objects.all()
     bands_list = Bands.objects.all()
 
     user_id = request.user.id
 
     # True if you are host, False if you are a band
-    user_Type = get_User_Type()
+    user_Type = get_User_Type(user_id)
 
 
     # Code for host at index
@@ -23,12 +24,22 @@ def index(request):
         host_names = []
         for h in hosts_list:
             host_names.append(h.h_name)
-        return render_to_response('index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list})
+        return render_to_response('host_index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list})
+
+    # Code for band at index
     elif user_Type == False:
         host_names = []
         for h in hosts_list:
             host_names.append(h.h_name)
-        return render_to_response('index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list})
+
+        # Sets var band to the band object with the corresponding user_id
+        band = 0
+        for b in bands_list:
+            if b.user_id == user_id:
+                band = b
+
+
+        return render_to_response('bands_index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list, "band":band})
 
 
 def login(request):
@@ -45,6 +56,7 @@ def auth_view(request):
     else:
         return HttpResponseRedirect('/accounts/invalid')
 
+@login_required(login_url='/accounts/not_loggedin/')
 def loggedin(request):
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username,"user": request.user})
@@ -56,6 +68,7 @@ def logout(request):
     auth.logout(request)
     return render_to_response('logout.html')
 
+#Not being used, will leave in for now
 def register_user(request):
     if request.method == 'POST':
         form = MyRegistrationForm(request.POST)
@@ -125,7 +138,7 @@ def register_host(request):
 
     return render_to_response('register_host.html', args)
 
-
+@login_required(login_url='/accounts/not_loggedin/')
 def register_event(request):
     if request.method == 'POST':
 
@@ -156,7 +169,6 @@ def register_event(request):
 
 
 def register_success(request):
-    auth.login(request)
     return render_to_response('register_success.html',{"user": request.user,})
 
 
@@ -182,7 +194,7 @@ def get_User_Type(user_id):
         return False
 
 
-@login_required
+@login_required(login_url='/accounts/not_loggedin/')
 def profile(request):
     hosts_list = Hosts.objects.all()
     bands_list = Bands.objects.all()
@@ -203,3 +215,19 @@ def profile(request):
 
     return render_to_response('profile_test.html',{"user": request.user,"user_id":user_id, "host":host, "band":band, "user_Type":user_Type})
 
+def not_loggedin(request):
+     return render_to_response('not_loggedin.html')
+
+
+@login_required(login_url='/accounts/not_loggedin/')
+def edit_profile(request):
+    bands_list = Bands.objects.all()
+
+    user_id = request.user.id
+    # Sets var band to the band object with the corresponding user_id
+    band = 0
+    for b in bands_list:
+        if b.user_id == user_id:
+            band = b
+
+    return render_to_response('edit_profile.html',{"band":band, "user":request.user})
