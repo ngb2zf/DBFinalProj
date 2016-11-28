@@ -23,10 +23,10 @@
     text-align: left !important;
 }
 
-table, th, td {
+/*table, th, td {
      border: 1px solid #ccc;
      margin: 6px !important;
-     text-align:center;
+     text-align:center !important;
      padding: 4px;
 }
 
@@ -36,7 +36,7 @@ table {
 
 th {
 	background-color: #e1e1e1;
-}
+}*/
 
 .inner-div {
      border: 1px solid #ccc;
@@ -45,5 +45,19 @@ th {
      padding: 4px;
      /*max-width: 330px;*/
      /*max-width: 80%;*/
+}
+
+.formsTableStyle {
+     /*border: 1px solid #ccc;*/
+     margin: 6px !important;
+     text-align: right !important;
+     padding: 4px !important;
+}
+
+.tables {
+    border: 1px solid #ccc;
+    margin: 6px !important;
+    text-align:center !important;
+    padding: 4px;
 }
 

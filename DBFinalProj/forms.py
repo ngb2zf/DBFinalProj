@@ -38,6 +38,16 @@ class Band_MyRegistrationForm(ModelForm):
             'b_bio': _('Biography'),
             'b_address': _('Address')
         }
+        # widgets = {
+        #     'b_name': forms.TextInput(attrs={'class': 'formsTableStyle'}),
+        #     'b_email': forms.TextInput(attrs={'class': 'formsTableStyle'}),
+        #     'b_phone': forms.TextInput(attrs={'class': 'formsTableStyle'}),
+        #     'b_availability': forms.TextInput(attrs={'class': 'formsTableStyle'}),
+        #     'b_price': forms.TextInput(attrs={'class': 'formsTableStyle'}),
+        #     'b_bio': forms.Textarea(attrs={'class': 'formsTableStyle'}),
+        #     'b_lat': forms.TextInput(attrs={'class': 'formsTableStyle'}),
+        #     'b_lon': forms.TextInput(attrs={'class': 'formsTableStyle'}),
+        # }
 
     def save(self, commit=True):
 
