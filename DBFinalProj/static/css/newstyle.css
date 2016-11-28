@@ -4,6 +4,10 @@
   background-color: #ADD8E6;
 }
 
+.band-search {
+    margin: auto;
+}
+
 .outer-div {
     /*max-width: 330px;*/
     /*max-width: 80%;*/

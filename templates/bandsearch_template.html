@@ -1,4 +1,14 @@
-<form method="get" action="/bands/search/" class="navbar-form pull-right">
-<input type="text" id="searchBox" class="input-medium search-query" name="address" placeholder="address">
+{% extends "base.html" %}
+
+{% block content %}
+  
+  <h2>Find Bands in Your Area</h2>
+  
+<form class="band-search" method="get" action="/bands/search/" class="navbar-form pull-right">
+<input type="text" id="searchBox" class="input-medium search-query" name="address" placeholder="Address">
 <input type="submit" class="btn" value="Search" >
 </form>
+
+<br><br>
+  
+{% endblock %}
