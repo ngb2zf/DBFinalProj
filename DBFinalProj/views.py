@@ -194,4 +194,3 @@ def profile(request):
     user_Type = get_User_Type(user_id)
 
     return render_to_response('profile_test.html',{"user": request.user,"user_id":user_id, "host":host, "band":band, "user_Type":user_Type})
-
