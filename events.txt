@@ -1,0 +1,3 @@
+1, 3, Cool Party, 38.0400823, -78.5199934, 70, false, true, 12/10/2016 6:30 PM, 12/10/2016 10:30 PM
+2, 1, Election Night Party, 38.0400823, -78.5199934, 250, true, false, 12/11/2016 7:30 PM, 12/11/2016 11:00 PM
+3, 2, Finals Are Over Celebration, 38.0400823, -78.5199934, 2000, true, false, 12/13/2016 9:30 PM, 12/14/2016 2:00 AM
