@@ -12,13 +12,31 @@
   <form action="/accounts/register_host/" method="post">
         <p>BOOK-A-BAND.com Info</p>
       <hr>
-  {{ form2 }}
+<!--   {{ form2 }}
       <hr>
       <p>Host Info</p>
       <hr>
-  {{form}}
+  {{form}} -->
+      {% for field in form2 %}
+      <tr>
+          <td>{{ field.label_tag }}</td>
+          <td>{{ field }}</td>
+      </tr>
+      <br/>
+      {% endfor %}
       <hr>
 
+      <hr>
+      <p>Host Info</p>
+      <hr>
+
+      {% for field in form %}
+      <tr>
+          <td>{{ field.label_tag }}</td>
+          <td>{{ field }}</td>
+      </tr>
+      <br/>
+      {% endfor %}
   <input type="submit" value="Register" />
     
   </form>
