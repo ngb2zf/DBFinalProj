@@ -6,7 +6,8 @@
     <h2>Welcome to the bands home page</h2>
     <p>Here's your public profile</p>
     <hr/>
-
+    <center>
+    <div class = "display-div">
     <p><b>Band Name: </b>{{ band.b_name }}</p>
     <p><b>Band Rating: </b>{{ band.b_avgrating }}</p>
     <p><b>Band Price: </b>${{ band.b_price }}</p>
@@ -15,6 +16,8 @@
     <p><b>Band Email: </b>{{ band.b_email }}</p>
     <p><b>Band Phone: </b>{{ band.b_phone }}</p>
     <p><b>Band Address: </b>{{ band.b_address }}</p>
+    </div>
+    </center>
     <hr/>
     <p>Something not right?</p>
     <a href="/accounts/edit_profile/" class="btn btn-default">Edit Profile</a>
