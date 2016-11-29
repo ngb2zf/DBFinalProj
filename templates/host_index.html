@@ -22,4 +22,25 @@
     <p>Have a party/event in need of a band?</p>
     <a href="/accounts/register_event/" class="btn btn-default">Register New Event</a></p>
     <hr/>
+    <p>Your Events:</p>
+    <table class="table-striped search-results">
+        <tr>
+        <th>Event Name</th>
+        <th>Address</th>
+        <th>Capacity</th>
+        <th>Date</th>
+        <th> </th>
+        </tr>
+        {% for o in events %}
+            <tr><td>{{ o.e_name }}</td>
+            <td>{{ o.e_address }}</td>
+            <td>{{ o.e_capac }}</td>
+            <td>{{ o.e_start }}</td>
+            <td><form class="band-search" method="get" action="/events/delete" class="navbar-form pull-right">
+            <input type="hidden" id="searchBox" class="input-medium search-query" name="e_id" value="{{ o.e_id }}">
+            <input type="submit" class="btn" value="Delete" >
+            </form></td></tr>
+        {% endfor %}
+    </table>
+
 {% endblock %}

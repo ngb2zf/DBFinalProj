@@ -29,18 +29,12 @@
         <entry file="file://$PROJECT_DIR$/DBFinalProj/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="247" column="31" selection-start-line="247" selection-start-column="31" selection-end-line="247" selection-end-column="31" />
+              <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
               <folding>
-                <element signature="e#0#47#0" expanded="true" />
-                <element signature="e#494#1760#0" expanded="false" />
-                <element signature="e#1883#2250#0" expanded="false" />
-                <element signature="e#2713#3084#0" expanded="false" />
-                <element signature="e#3119#3791#0" expanded="false" />
-                <element signature="e#3878#4561#0" expanded="false" />
-                <element signature="e#4652#5340#0" expanded="false" />
-                <element signature="e#5375#6047#0" expanded="false" />
-                <element signature="e#7413#7821#0" expanded="false" />
-                <element signature="e#7903#8371#0" expanded="false" />
+                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#8023#8431#0" expanded="false" />
+                <element signature="e#8513#8981#0" expanded="false" />
+                <marker date="1480387782958" expanded="true" signature="2008:2049" placeholder="delete from ..." />
               </folding>
             </state>
           </provider>
@@ -56,10 +50,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register_event_success.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="register_event_success.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/register_event_success.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42277488">
+            <state vertical-scroll-proportion="-12.423077">
               <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
               <folding />
             </state>
@@ -86,11 +80,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="host_index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="host_index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/host_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.31020942">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -145,9 +139,9 @@
         <option value="$PROJECT_DIR$/templates/host_edit_profile.html" />
         <option value="$PROJECT_DIR$/DBFinalProj/urls.py" />
         <option value="$PROJECT_DIR$/templates/bands_index.html" />
-        <option value="$PROJECT_DIR$/templates/host_index.html" />
         <option value="$PROJECT_DIR$/DBFinalProj/views.py" />
         <option value="$PROJECT_DIR$/templates/register_event_success.html" />
+        <option value="$PROJECT_DIR$/templates/host_index.html" />
       </list>
     </option>
   </component>
@@ -848,38 +842,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/host_index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/bands_index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537">
           <caret line="12" column="31" selection-start-line="11" selection-start-column="4" selection-end-line="12" selection-end-column="31" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBFinalProj/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="247" column="31" selection-start-line="247" selection-start-column="31" selection-end-line="247" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-            <element signature="e#494#1760#0" expanded="false" />
-            <element signature="e#1883#2250#0" expanded="false" />
-            <element signature="e#2713#3084#0" expanded="false" />
-            <element signature="e#3119#3791#0" expanded="false" />
-            <element signature="e#3878#4561#0" expanded="false" />
-            <element signature="e#4652#5340#0" expanded="false" />
-            <element signature="e#5375#6047#0" expanded="false" />
-            <element signature="e#7413#7821#0" expanded="false" />
-            <element signature="e#7903#8371#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -893,8 +860,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/register_event_success.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42277488">
+        <state vertical-scroll-proportion="-12.423077">
           <caret line="19" column="51" selection-start-line="19" selection-start-column="51" selection-end-line="19" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBFinalProj/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#8023#8431#0" expanded="false" />
+            <element signature="e#8513#8981#0" expanded="false" />
+            <marker date="1480387782958" expanded="true" signature="2008:2049" placeholder="delete from ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/host_index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31020942">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
