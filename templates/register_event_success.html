@@ -2,7 +2,21 @@
 
 {% block content %}
 
-  <h2>You have successfully registered an event!</h2>
-  
+    <h2>You have successfully registered an event!</h2>
+
+    <p>Event Summary</p>
+
+    <center>
+    <div class = "display-div">
+    <p><b>Event Name: </b>{{ event.e_name }}</p>
+    <p><b>Event Address: </b>{{event.e_address }}</p>
+    <p><b>Event Capacity: </b>{{ event.e_capac }}</p>
+    <p><b>Event Start: </b>{{ event.e_start }}</p>
+    <p><b>Event End: </b>{{ event.e_end }}</p>
+    </div>
+    </center>
+
+    <hr/>
+    <p><a href="/" class="btn btn-default">Home</a></p>
 
 {% endblock %}

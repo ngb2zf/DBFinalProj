@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import MyRegistrationForm, Band_MyRegistrationForm, Host_MyRegistrationForm, Event_MyRegistrationForm
 # Create your views here.
 
+#temporary
+event_summary = 0
 
 @login_required(login_url='/accounts/not_loggedin/')
 def index(request):
@@ -206,7 +208,6 @@ def register_event(request):
     if request.method == 'POST':
 
         form = Event_MyRegistrationForm(request.POST)
-        # form2 = MyRegistrationForm(request.POST)
         if form.is_valid():
             event = form.save(commit = False)
             hosts_list = Hosts.objects.all()
@@ -217,22 +218,35 @@ def register_event(request):
                     host = h
             event.h_id_id = host.h_id
             event.save()
-            return HttpResponseRedirect('/accounts/register_event_success')
+
+            set_event_summary(event)
+
+            return HttpResponseRedirect('/accounts/register_event_success',{"user":request.user})
 
     else:
         form = Event_MyRegistrationForm()
-        # form2 = MyRegistrationForm()
+
     args = {}
-    # args.update(csrf(request))
 
     args['form'] = form
-    # args['form2'] = form2
+    args['user'] = request.user
 
     return render_to_response('register_event.html', args)
 
+def set_event_summary(event):
+    global event_summary
+    event_summary = event
 
+def get_event_summary():
+    global event_summary
+    return event_summary
+
+
+
+@login_required(login_url='/accounts/not_loggedin/')
 def register_event_success(request):
-    return render_to_response('register_event_success.html',{"user": request.user,})
+    event = get_event_summary()
+    return render_to_response('register_event_success.html',{"user": request.user,"event":event})
 
 
 def register_success(request):
