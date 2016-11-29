@@ -20,7 +20,13 @@ def search(request):
     g = geocoder.google(address)
     lat, lon = g.latlng
 
-    query = "select * from bandsapp_bands where b_lat > " + str(lat-1) + " and b_lat < " + str(lat+1) + " and b_lon > " + str(lon-1) + " and b_lon < " + str(lon+1) + ";"
+    price_dir = request.GET['price_dir']
+
+    if price_dir == 'ASC':
+    	query = "select * from bandsapp_bands where b_lat > " + str(lat-1) + " and b_lat < " + str(lat+1) + " and b_lon > " + str(lon-1) + " and b_lon < " + str(lon+1) + " order by b_price;"
+    else:
+    	query = "select * from bandsapp_bands where b_lat > " + str(lat-1) + " and b_lat < " + str(lat+1) + " and b_lon > " + str(lon-1) + " and b_lon < " + str(lon+1) + " order by b_price desc;"
+
 
     print(query)
 

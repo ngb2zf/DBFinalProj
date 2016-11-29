@@ -32,7 +32,7 @@ class Bands(models.Model):
 	b_phone = models.CharField(max_length=31)
 	b_availability = models.CharField(max_length=255)
 	b_avgrating = models.DecimalField(max_digits=4, decimal_places=3, blank=True, null=True)
-	b_price = models.DecimalField(max_digits=10, decimal_places=2)
+	b_price = models.DecimalField(max_digits=10, decimal_places=2, db_index=True)
 	b_bio = models.TextField()
 	b_lat = models.DecimalField(max_digits=10, decimal_places=8)
 	b_lon = models.DecimalField(max_digits=11, decimal_places=8)
