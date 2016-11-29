@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import MyRegistrationForm, Band_MyRegistrationForm, Host_MyRegistrationForm, Event_MyRegistrationForm
 # Create your views here.
 
+
 @login_required(login_url='/accounts/not_loggedin/')
 def index(request):
     # This code will be in each view where we need to tell user or host
@@ -24,7 +25,14 @@ def index(request):
         host_names = []
         for h in hosts_list:
             host_names.append(h.h_name)
-        return render_to_response('host_index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list})
+
+        # Sets var band to the band object with the corresponding user_id
+        host = 0
+        for h in hosts_list:
+            if h.user_id == user_id:
+                host = h
+
+        return render_to_response('host_index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list, "host":host})
 
     # Code for band at index
     elif user_Type == False:
@@ -42,8 +50,10 @@ def index(request):
         return render_to_response('bands_index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list, "band":band})
 
 
+
 def login(request):
     return render_to_response('login.html', {"user": request.user,})
+
 
 def auth_view(request):
     username = request.POST.get('username', '')
@@ -56,17 +66,21 @@ def auth_view(request):
     else:
         return HttpResponseRedirect('/accounts/invalid')
 
+
 @login_required(login_url='/accounts/not_loggedin/')
 def loggedin(request):
     return render_to_response('loggedin.html',
                               {'full_name': request.user.username,"user": request.user})
 
+
 def invalid_login(request):
     return render_to_response('invalid_login.html')
+
 
 def logout(request):
     auth.logout(request)
     return render_to_response('logout.html')
+
 
 #Not being used, will leave in for now
 def register_user(request):
@@ -84,6 +98,7 @@ def register_user(request):
     args['form'] = form
 
     return render_to_response('register.html', args)
+
 
 def register_band(request):
     auth.logout(request)
@@ -112,6 +127,53 @@ def register_band(request):
     return render_to_response('register_band.html', args)
 
 
+@login_required(login_url='/accounts/not_loggedin/')
+def edit_profile(request):
+    bands_list = Bands.objects.all()
+
+    user_id = request.user.id
+    # Sets var band to the band object with the corresponding user_id
+    band = 0
+    for b in bands_list:
+        if b.user_id == user_id:
+            band = b
+
+    my_record = band
+    if request.method == 'POST':
+            form = Band_MyRegistrationForm(request.POST, instance=my_record)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/',{"user": request.user})
+    else:
+        my_record = band
+        form = Band_MyRegistrationForm(instance=my_record)
+
+    return render_to_response('edit_profile.html',{"band":band, "user":request.user, "form":form})
+
+@login_required(login_url='/accounts/not_loggedin/')
+def host_edit_profile(request):
+    hosts_list = Hosts.objects.all()
+
+    user_id = request.user.id
+    # Sets var band to the band object with the corresponding user_id
+    host = 0
+    for h in hosts_list:
+        if h.user_id == user_id:
+            host = h
+
+    my_record = host
+    if request.method == 'POST':
+            form = Host_MyRegistrationForm(request.POST, instance=my_record)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/',{"user": request.user})
+    else:
+        my_record = host
+        form = Host_MyRegistrationForm(instance=my_record)
+
+    return render_to_response('host_edit_profile.html',{"host":host, "user":request.user, "form":form})
+
+
 def register_host(request):
     auth.logout(request)
     if request.method == 'POST':
@@ -137,6 +199,7 @@ def register_host(request):
     args['form2'] = form2
 
     return render_to_response('register_host.html', args)
+
 
 @login_required(login_url='/accounts/not_loggedin/')
 def register_event(request):
@@ -220,16 +283,5 @@ def not_loggedin(request):
      return render_to_response('not_loggedin.html')
 
 
-@login_required(login_url='/accounts/not_loggedin/')
-def edit_profile(request):
-    bands_list = Bands.objects.all()
 
-    user_id = request.user.id
-    # Sets var band to the band object with the corresponding user_id
-    band = 0
-    for b in bands_list:
-        if b.user_id == user_id:
-            band = b
-
-    return render_to_response('edit_profile.html',{"band":band, "user":request.user})
 

@@ -12,7 +12,7 @@
     <center>
     <div class = "display-div">
     <p><b>Band Name: </b>{{ band.b_name }}</p>
-    <p><b>Band Rating: </b>{{ band.b_avgrating }}</p>
+    <!-- <p><b>Band Rating: </b>{{ band.b_avgrating }}</p> -->
     <p><b>Band Price: </b>${{ band.b_price }}</p>
     <p><b>Band Bio: </b>{{ band.b_bio }}</p>
     <p><b>Band Contact Availability: </b>{{ band.b_availability }}</p>
@@ -25,9 +25,8 @@
     <p>Something not right?</p>
     <a href="/accounts/edit_profile/" class="btn btn-default">Edit Profile</a>
 
-    <p>-----------------------DEBUG--------------------------------</p>
 
-    <h2>Hosts</h2>
+<!--     <h2>Hosts</h2>
     {% for hosts in host_names %}
         <p>{{ hosts }}</p>
     {% endfor %}
@@ -35,6 +34,6 @@
     <h2>Bands</h2>
     {% for bands in bands_list %}
         <p>{{ bands.b_name }}</p>
-    {% endfor %}
+    {% endfor %} -->
 
 {% endblock %}

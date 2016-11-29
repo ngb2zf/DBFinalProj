@@ -5,20 +5,19 @@
 
     <h2>Welcome to the hosts home page</h2>
 
+    <p>Here's your public profile</p>
+    <hr/>
+    <center>
+    <div class = "display-div">
+    <p><b>Host Name: </b>{{ host.h_name }}</p>
 
-
-
-
-
-    <p>-----------------------DEBUG--------------------------------</p>
-    <h2>Hosts</h2>
-    {% for hosts in host_names %}
-        <p>{{ hosts }}</p>
-    {% endfor %}
-
-    <h2>Bands</h2>
-    {% for bands in bands_list %}
-        <p>{{ bands.b_name }}</p>
-    {% endfor %}
+    <p><b>Host Contact Availability: </b>{{ host.h_availability }}</p>
+    <p><b>Host Email: </b>{{ host.h_email }}</p>
+    <p><b>Host Phone: </b>{{ host.h_phone }}</p>
+    </div>
+    </center>
+    <hr/>
+    <p>Something not right?</p>
+    <a href="/accounts/host_edit_profile/" class="btn btn-default">Edit Profile</a>
 
 {% endblock %}

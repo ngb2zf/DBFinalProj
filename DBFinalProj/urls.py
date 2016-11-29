@@ -36,6 +36,8 @@ urlpatterns = [
     url(r'^accounts/register_event/$', views.register_event, name='reg_event'),
     url(r'^accounts/not_loggedin/$', views.not_loggedin, name='not_loggedin'),
     url(r'^accounts/edit_profile/$', views.edit_profile, name='edit_profile'),
+    url(r'^accounts/host_edit_profile/$', views.host_edit_profile, name='host_edit_profile'),
+
 
 
 ]
