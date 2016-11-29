@@ -25,22 +25,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DBFinalProj/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="157" column="103" selection-start-line="157" selection-start-column="103" selection-end-line="157" selection-end-column="103" />
+            <state vertical-scroll-proportion="0.3113924">
+              <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
-                <element signature="e#1560#1624#0" expanded="false" />
-                <element signature="e#1654#2021#0" expanded="false" />
-                <element signature="e#2103#2234#0" expanded="false" />
-                <element signature="e#2268#2315#0" expanded="false" />
-                <element signature="e#2480#2851#0" expanded="false" />
-                <element signature="e#5139#5811#0" expanded="false" />
-                <element signature="e#5899#6699#0" expanded="false" />
-                <element signature="e#6846#7254#0" expanded="false" />
-                <element signature="e#7336#7804#0" expanded="false" />
+                <element signature="e#6107#6907#0" expanded="false" />
+                <element signature="e#7054#7462#0" expanded="false" />
+                <element signature="e#7544#8012#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -69,18 +63,18 @@
       <file leaf-file-name="bands_index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/bands_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615">
-              <caret line="22" column="78" selection-start-line="6" selection-start-column="4" selection-end-line="22" selection-end-column="78" />
+            <state vertical-scroll-proportion="-13.730769">
+              <caret line="21" column="31" selection-start-line="6" selection-start-column="4" selection-end-line="11" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="host_index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="host_index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/host_index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15575916">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.076923">
+              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -145,8 +139,8 @@
         <option value="$PROJECT_DIR$/templates/edit_profile.html" />
         <option value="$PROJECT_DIR$/templates/host_edit_profile.html" />
         <option value="$PROJECT_DIR$/DBFinalProj/urls.py" />
-        <option value="$PROJECT_DIR$/DBFinalProj/views.py" />
         <option value="$PROJECT_DIR$/templates/host_index.html" />
+        <option value="$PROJECT_DIR$/DBFinalProj/views.py" />
       </list>
     </option>
   </component>
@@ -849,33 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBFinalProj/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DBFinalProj/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="157" column="103" selection-start-line="157" selection-start-column="103" selection-end-line="157" selection-end-column="103" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-            <element signature="e#1560#1624#0" expanded="false" />
-            <element signature="e#1654#2021#0" expanded="false" />
-            <element signature="e#2103#2234#0" expanded="false" />
-            <element signature="e#2268#2315#0" expanded="false" />
-            <element signature="e#2480#2851#0" expanded="false" />
-            <element signature="e#5139#5811#0" expanded="false" />
-            <element signature="e#5899#6699#0" expanded="false" />
-            <element signature="e#6846#7254#0" expanded="false" />
-            <element signature="e#7336#7804#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/edit_profile.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693">
@@ -886,8 +853,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/bands_index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615">
-          <caret line="22" column="78" selection-start-line="6" selection-start-column="4" selection-end-line="22" selection-end-column="78" />
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="21" column="31" selection-start-line="6" selection-start-column="4" selection-end-line="11" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -902,9 +869,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/host_index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15575916">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBFinalProj/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="78" selection-start-line="38" selection-start-column="78" selection-end-line="38" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBFinalProj/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3113924">
+          <caret line="174" column="0" selection-start-line="174" selection-start-column="0" selection-end-line="174" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#6107#6907#0" expanded="false" />
+            <element signature="e#7054#7462#0" expanded="false" />
+            <element signature="e#7544#8012#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
