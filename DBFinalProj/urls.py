@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^accounts/invalid/$', views.invalid_login, name='invalid'),
     url(r'^accounts/register/$', views.register_user, name='register'),
     url(r'^accounts/register_success/$', views.register_success, name='reg_success'),
+    url(r'^accounts/register_event_success/$', views.register_event_success, name='reg_event_success'),
     url(r'^accounts/register_band/$', views.register_band, name='reg_band'),
     url(r'^accounts/register_host/$', views.register_host, name='reg_host'),
     url(r'^accounts/profile/$', views.profile, name='profile'),
