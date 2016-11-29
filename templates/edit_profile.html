@@ -6,24 +6,31 @@
     <h2>Edit Profile</h2>
     <p>Here's your public profile</p>
     <hr/>
-    <center>
-        <div class = "display-div">
-        <form>
-            <p><b>Band Name: </b><input type = "text" value = "{{ band.b_name }}"></p>
-            <p><b>Band Rating: </b><input type = "text" value ="{{ band.b_avgrating }}"></p>
-            <p><b>Band Price: </b><input type = "text" value = "{{ band.b_price }}"></p>
-            <p><b>Band Bio: </b><input type = "textarea" value ="{{ band.b_bio }}"></p>
-            <p><b>Band Contact Availability: </b><input type = "text" value = "{{ band.b_availability }}"></p>
-            <p><b>Band Email: </b><input type = "text" value ="{{ band.b_email }}"></p>
-            <p><b>Band Phone: </b><input type = "text" value ="{{ band.b_phone }}"></p>
-            <p><b>Band Address: </b><input type = "text" value = "{{ band.b_address }}"></p>
-        </form>
-        </div>
-    </center>
+
+    <form action="/accounts/edit_profile/" method="post">
+            <center><table>{{form.as_table}}</table></center>
+    <input type="submit" value="Submit" />
+    </form>
+
+
+{#    <center>#}
+{#        <div class = "display-div">#}
+{#        <form>#}
+{#            <p><b>Band Name: </b><input type = "text" value = "{{ band.b_name }}"></p>#}
+{#            <p><b>Band Rating: </b><input type = "text" value ="{{ band.b_avgrating }}"></p>#}
+{#            <p><b>Band Price: </b><input type = "text" value = "{{ band.b_price }}"></p>#}
+{#            <p><b>Band Bio: </b><input type = "textarea" value ="{{ band.b_bio }}"></p>#}
+{#            <p><b>Band Contact Availability: </b><input type = "text" value = "{{ band.b_availability }}"></p>#}
+{#            <p><b>Band Email: </b><input type = "text" value ="{{ band.b_email }}"></p>#}
+{#            <p><b>Band Phone: </b><input type = "text" value ="{{ band.b_phone }}"></p>#}
+{#            <p><b>Band Address: </b><input type = "text" value = "{{ band.b_address }}"></p>#}
+{#        </form>#}
+{#        </div>#}
+{#    </center>#}
     <hr/>
 
-    <p>Commit Changes</p>
-
-    <a href="/" class="btn btn-default">Save</a>
+{#    <p>Commit Changes</p>#}
+{##}
+{#    <a href="/" class="btn btn-default">Save</a>#}
 
 {% endblock %}

@@ -111,6 +111,28 @@ def register_band(request):
 
     return render_to_response('register_band.html', args)
 
+@login_required(login_url='/accounts/not_loggedin/')
+def edit_profile(request):
+    bands_list = Bands.objects.all()
+
+    user_id = request.user.id
+    # Sets var band to the band object with the corresponding user_id
+    band = 0
+    for b in bands_list:
+        if b.user_id == user_id:
+            band = b
+
+    my_record = band
+    if request.method == 'POST':
+            form = Band_MyRegistrationForm(request.POST, instance=my_record)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/',{"user": request.user})
+    else:
+        my_record = band
+        form = Band_MyRegistrationForm(instance=my_record)
+
+    return render_to_response('edit_profile.html',{"band":band, "user":request.user, "form":form})
 
 def register_host(request):
     auth.logout(request)
@@ -220,16 +242,5 @@ def not_loggedin(request):
      return render_to_response('not_loggedin.html')
 
 
-@login_required(login_url='/accounts/not_loggedin/')
-def edit_profile(request):
-    bands_list = Bands.objects.all()
 
-    user_id = request.user.id
-    # Sets var band to the band object with the corresponding user_id
-    band = 0
-    for b in bands_list:
-        if b.user_id == user_id:
-            band = b
-
-    return render_to_response('edit_profile.html',{"band":band, "user":request.user})
 
