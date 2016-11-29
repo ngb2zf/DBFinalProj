@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+  <h2>Results</h2>
+  
+<table class="table-striped search-results">
+<tr>
+<th>Event Name</th>
+<th>Address</th>
+<th>Capacity</th>
+<th>Date</th>
+</tr>
+{% for o in events %}
+    <tr><td>{{ o.e_name }}</td>
+    <td>{{ o.e_address }}</td>
+	<td>{{ o.e_capac }}</td>
+	<td>{{ o.e_start }}</td></tr>
+{% endfor %}
+</table>
+  
+{% endblock %}
