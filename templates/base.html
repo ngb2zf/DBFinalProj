@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://use.fontawesome.com/3a86fd627e.js"></script>
     <title>{% block title %}BOOK-A-BAND.com{% endblock %}</title>
 
     <!-- <link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/default.css" > -->
@@ -11,30 +12,28 @@
 
 <body class = "body-blue">
 	<div id="page" class = "outer-div">
-        <h2>Welcome to BOOK-A-BAND.com</h2>
+        <h2>Welcome to <i class="fa fa-music" aria-hidden="true"></i> <b>BOOK-A-BAND.com</b> <i class="fa fa-music" aria-hidden="true"></i></h2>
 
     <div id="sidebar" class = "inner-div">
         {% block sidebar %}
-            <p>Username: {{ user.username }}</p>
             {% if user.is_authenticated %}
             <p>Welcome, {{ user.get_username }}. Thanks for logging in.</p>
-{#                {% if  %}#}
             {% else %}
             <p>Welcome, new user. Please log in.</p>
             {% endif %}
 
 
-            <p><a href="/" class="btn btn-default">Home</a>
-            <a href="/admin" class="btn btn-default">Admin</a>
+            <p><a href="/" class="btn btn-default"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+            <a href="/admin" class="btn btn-default"><i class="fa fa-id-badge" aria-hidden="true"></i> Admin</a>
 
-            <a href="/accounts/login/" class="btn btn-default">Login</a>
-            <a href="/accounts/logout/" class="btn btn-default">Logout</a>
+            <a href="/accounts/login/" class="btn btn-default"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+            <a href="/accounts/logout/" class="btn btn-default"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
             <!-- <a href="/accounts/profile/" class="btn btn-default">Profile</a> -->
             
 
-            <a href="/accounts/register_band/" class="btn btn-default">Register Band</a>
-            <a href="/accounts/register_host/" class="btn btn-default">Register Host</a>
-            <a href="/bands/" class="btn btn-default">Find Bands</a>
+            <a href="/accounts/register_band/" class="btn btn-default"><i class="fa fa-headphones" aria-hidden="true"></i> Register Band</a>
+            <a href="/accounts/register_host/" class="btn btn-default"><i class="fa fa-user" aria-hidden="true"></i> Register Host</a>
+            <a href="/bands/" class="btn btn-default"><i class="fa fa-search-plus" aria-hidden="true"></i> Find Bands</a>
             </p>
         {% endblock %}
     </div>
