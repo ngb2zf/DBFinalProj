@@ -73,3 +73,8 @@ th {
     padding: 4px;
 }
 
+.display-div {
+    text-align: left !important;
+    max-width: 30%;
+}
+
