@@ -1,3 +1,4 @@
+from django.db import connection
 from django.shortcuts import render_to_response
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import auth
@@ -32,7 +33,13 @@ def index(request):
             if h.user_id == user_id:
                 host = h
 
-        return render_to_response('host_index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list, "host":host})
+        query = "select * from bandsapp_events where h_id_id = " + str(host.h_id) + ";"
+
+        print(query)
+
+        events = Events.objects.raw(query)
+
+        return render_to_response('host_index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list, "host":host, "events":events})
 
     # Code for band at index
     elif user_Type == False:
@@ -49,6 +56,17 @@ def index(request):
 
         return render_to_response('bands_index.html',{"user": request.user,"host_names":host_names, "bands_list":bands_list, "band":band})
 
+
+def delete_event(request):
+    query = "delete from bandsapp_events where e_id = " + str(request.GET['e_id']) + ";"
+
+    print(query)
+
+    cursor = connection.cursor()
+    cursor.execute(query)
+    connection.commit()
+
+    return HttpResponseRedirect('/accounts/event_delete_success')
 
 
 def login(request):
@@ -233,6 +251,9 @@ def register_event(request):
 
 def register_event_success(request):
     return render_to_response('register_event_success.html',{"user": request.user,})
+
+def event_delete_success(request):
+    return render_to_response('event_delete_success.html',{"user": request.user,})
 
 
 def register_success(request):
