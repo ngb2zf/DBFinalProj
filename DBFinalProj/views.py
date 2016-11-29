@@ -134,6 +134,29 @@ def edit_profile(request):
 
     return render_to_response('edit_profile.html',{"band":band, "user":request.user, "form":form})
 
+@login_required(login_url='/accounts/not_loggedin/')
+def host_edit_profile(request):
+    hosts_list = Hosts.objects.all()
+
+    user_id = request.user.id
+    # Sets var band to the band object with the corresponding user_id
+    host = 0
+    for h in hosts_list:
+        if h.user_id == user_id:
+            host = h
+
+    my_record = host
+    if request.method == 'POST':
+            form = Host_MyRegistrationForm(request.POST, instance=my_record)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect('/',{"user": request.user})
+    else:
+        my_record = host
+        form = Host_MyRegistrationForm(instance=my_record)
+
+    return render_to_response('host_edit_profile.html',{"host":host, "user":request.user, "form":form})
+
 def register_host(request):
     auth.logout(request)
     if request.method == 'POST':
