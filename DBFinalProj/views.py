@@ -217,7 +217,7 @@ def register_event(request):
                     host = h
             event.h_id_id = host.h_id
             event.save()
-            return HttpResponseRedirect('/accounts/register_success')
+            return HttpResponseRedirect('/accounts/register_event_success')
 
     else:
         form = Event_MyRegistrationForm()
@@ -229,6 +229,10 @@ def register_event(request):
     # args['form2'] = form2
 
     return render_to_response('register_event.html', args)
+
+
+def register_event_success(request):
+    return render_to_response('register_event_success.html',{"user": request.user,})
 
 
 def register_success(request):

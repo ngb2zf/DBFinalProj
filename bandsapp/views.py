@@ -1,13 +1,17 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader, Context
-from bandsapp.models import Bands
+from bandsapp.models import Bands, Events
 import geocoder
 
 # Create your views here.
 
 def index(request):
 	template = loader.get_template('bandsearch_template.html')
+	return HttpResponse(template.render())
+
+def eventsindex(request):
+	template = loader.get_template('eventsearch_template.html')
 	return HttpResponse(template.render())
 
 
@@ -36,4 +40,26 @@ def search(request):
 
     # variables are set to be rendered then passed to bandresults_template and displayed
     context = Context({ 'bands': bands })
+    return HttpResponse(template.render(context))
+
+
+def searchevents(request):
+	# this is where the query gets executed
+
+	# this is just get variables named in bandsearch_template
+    address = request.GET['address']
+
+    g = geocoder.google(address)
+    lat, lon = g.latlng
+
+    query = "select * from bandsapp_events where e_lat > " + str(lat-1) + " and e_lat < " + str(lat+1) + " and e_lon > " + str(lon-1) + " and e_lon < " + str(lon+1) + ";"
+
+    print(query)
+
+    events = Events.objects.raw(query)
+
+    template = loader.get_template('eventresults_template.html')
+
+    # variables are set to be rendered then passed to bandresults_template and displayed
+    context = Context({ 'events': events })
     return HttpResponse(template.render(context))
