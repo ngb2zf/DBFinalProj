@@ -9,13 +9,13 @@ You're going to want to have pip installed, should be with any python version >2
 <br/>
 I am using pycharm with python3.4<br/>
 <br/>
-1)Install Django with pip<br/>
+2)Install Django with pip<br/>
 From command prompt you want to type:<br/>
   $ pip install Django==1.10.3<br/>
 To install the newest Django<br/>
 https://www.djangoproject.com/download/<br/>
 <br/>
-2)Install and setup MYSQL<br/>
+3)Install and setup MYSQL<br/>
 Install<br/>
 http://dev.mysql.com/doc/refman/5.7/en/installing.html<br/>
 Set-up info: You need to do this because you hardcode it into the settings file<br/>
@@ -33,7 +33,7 @@ Tutorial for setting it all up - Don't worry about what they say about settings 
 http://www.marinamele.com/taskbuster-django-tutorial/install-and-configure-mysql-for-django<br/>
 
 <br/>
-3)Install Geocoder:<br/>
+4)Install Geocoder:<br/>
   $ pip install geocoder<br/>
 This is needed to convert addresses into lat and lon<br/>
 
@@ -42,7 +42,7 @@ This is needed to convert addresses into lat and lon<br/>
 <br/>
 Don't run from pycharm, it's easier to run from cmd because pycharm won't make migrations and migrate database.<br/>
 <br/>
-4)To runserver:<br/>
+5)To runserver:<br/>
   python manage.py runserver<br/>
   View the site locally at http://127.0.0.1:8000/<br/>
 <br/>
