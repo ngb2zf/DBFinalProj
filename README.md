@@ -1,10 +1,8 @@
 # DBFinalProj
 Book-a-Band DB final project
+Steps to setup and run project:
 
-
-I realize there is a lot here and it took me awhile to set up, so if you have questions I can try and help if you are on Windows. If not I hope there is enough info in these tutorials that we can sort it out or I can try and help when we meet tommorrow.<br/>
-
-I am using this guide to set up Django<br/>
+1)I am using this guide to set up Django<br/>
 https://docs.djangoproject.com/en/1.10/intro/install/<br/>
 <br/>
 You're going to want to have pip installed, should be with any python version >2.7<br/>
@@ -35,7 +33,7 @@ Tutorial for setting it all up - Don't worry about what they say about settings 
 http://www.marinamele.com/taskbuster-django-tutorial/install-and-configure-mysql-for-django<br/>
 
 <br/>
-Install Geocoder:<br/>
+3)Install Geocoder:<br/>
   $ pip install geocoder<br/>
 This is needed to convert addresses into lat and lon<br/>
 
@@ -44,7 +42,7 @@ This is needed to convert addresses into lat and lon<br/>
 <br/>
 Don't run from pycharm, it's easier to run from cmd because pycharm won't make migrations and migrate database.<br/>
 <br/>
-To runserver:<br/>
+4)To runserver:<br/>
   python manage.py runserver<br/>
   View the site locally at http://127.0.0.1:8000/<br/>
 <br/>
